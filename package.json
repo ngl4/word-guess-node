@@ -1,0 +1,23 @@
+{
+  "name": "word-guess-node",
+  "version": "1.0.0",
+  "description": "Word Guess Game is built with JavaScript and Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ngl4/word-guess-node.git"
+  },
+  "author": "ngl4",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ngl4/word-guess-node/issues"
+  },
+  "homepage": "https://github.com/ngl4/word-guess-node#readme",
+  "dependencies": {
+    "inquirer": "^6.2.0",
+    "prompt": "^1.0.0"
+  }
+}
