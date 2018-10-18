@@ -1,29 +1,56 @@
 var Letter = require("./letter");
 
+var letter = new Letter();
+
 function Word (word) {
+
+    this.word = word;
     
-    this.lettersArray = word.split("").map(function(elem){
-        var letterElement = new Letter(elem);
-        return letterElement.character;
-    });
+    this.lettersArray = function() {
+
+        return (this.word).split("");
+
+    }
+    
+    // .map(function(elem){
+    //     var letterElement = new Letter(elem);
+    //     return letterElement.character;
+    // });
+
+    this.getWord = function() {
+        var string =[];
+        this.lettersArray().forEach(function(elem){
+            var eachChar = letter.getChar(elem);
+            string.push(eachChar);
+        }); 
+        return string.join(" ");  
+    }
+
+    this.checkGuessEachLetter = function(char) {
+        letter.checkLetter(char);
+        //letter.getChar();
+        console.log("letter checked!");
+
+    }
 
  
 };
 
+module.exports = Word;
 
 
-var word = new Word("hello");
-var myLetter = new Letter("e");
+// var word = new Word("hello");
+// var myLetter = new Letter("e");
 
 
-console.log(word.lettersArray);
+// console.log(word.lettersArray);
 
-for (i=0; i<(word.lettersArray).length; i++){
-    //console.log(word.lettersArray[i]);
+// for (i=0; i<(word.lettersArray).length; i++){
+//     //console.log(word.lettersArray[i]);
 
-    console.log(myLetter.isGuessed(word.lettersArray[i]));
+//     console.log(myLetter.checkGuess(word.lettersArray[i]));
 
-}
+// }
 
 
 //a letter object for the letter "h"

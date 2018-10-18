@@ -2,28 +2,27 @@
 function Letter (char){
 
     this.character = char;
-    //this.bool = bool;
+    this.bool = false;
 };
 
-Letter.prototype.isGuessed = function(charGuessed){
-    //if the charGuessed is the same as the character
-    //return true 
-    //it is not the same 
-    //return false 
-    if (charGuessed === this.character) {
-        //this.bool = true;
+Letter.prototype.getChar = function(){
+
+    if (this.bool) {
         return this.character;
     }else {
-        //this.bool = false;
         return "_";
     }
 }
 
-// var myLetter = new Letter("a");
+Letter.prototype.checkLetter = function(charGuessed){
 
-// console.log(myLetter);
-// console.log(myLetter.isGuessed("a"));
-// console.log(myLetter.isGuessed("b"));
+    if (charGuessed === this.character) {
+        this.bool = true;
+
+    }else {
+        this.bool = false;
+    } 
+}
 
 
 module.exports = Letter;
