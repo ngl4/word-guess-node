@@ -1,27 +1,27 @@
 var Word = require("./word");
-//var Letter = require("./letter");
+var Letter = require("./letter");
 
 var inquirer = require("inquirer");
 
-var word_constructor = new Word();
 
-var wordList = ["Inception", "Frozen", "Matrix"];
-var wordInPlay = wordList[Math.floor(Math.random() * wordList.length)];
 
-console.log(wordInPlay);
-var chosenWord = new Word(wordInPlay);
-console.log(chosenWord.word);
-console.log(chosenWord.lettersArray());
-console.log(chosenWord.lettersArray().join(" "));
+// var wordList = ["Inception", "Frozen", "Matrix"];
+// var wordInPlay = wordList[Math.floor(Math.random() * wordList.length)];
 
-var numBlanks = chosenWord.lettersArray().length;
-var blanksChosenWord = [];
+// console.log(wordInPlay);
+// var chosenWord = new Word(wordInPlay);
+// console.log(chosenWord.word);
+// console.log(chosenWord.lettersArray());
+// console.log(chosenWord.lettersArray().join(" "));
 
-for (var i = 0; i < numBlanks; i++) {
-    blanksChosenWord.push("_");
-  }
+// var numBlanks = chosenWord.lettersArray().length;
+// var blanksChosenWord = [];
 
-console.log(blanksChosenWord.join(" "));
+// for (var i = 0; i < numBlanks; i++) {
+//     blanksChosenWord.push("_");
+//   }
+
+// console.log(blanksChosenWord.join(" "));
 
 
 
@@ -40,10 +40,21 @@ inquirer.prompt([{
 
 }]).then(function (response) {
 
-    console.log(response.letter);
+    //console.log(response.letter);
 
-    word_constructor.checkGuessEachLetter(response.letter);
+    // word_constructor.checkGuessEachLetter(response.letter);
 
-    console.log(word_constructor.getWord());
+    // console.log(word_constructor.getWord());
+
+    var letter = new Letter("a");
+
+    letter.checkLetter(response.letter);
+
+    console.log(letter.getChar());
+
+    var movie = new Word(wordInPlay);
+
+    movie.lettersArray();
+ 
 
 });

@@ -8,10 +8,18 @@ function Word (word) {
     
     this.lettersArray = function() {
 
-        return (this.word).split("");
+        var newFormat = [];
+        var array = (this.word).split("");
 
-    }
-    
+        array.forEach(function(elem){
+            var newLetter = new Letter(elem);
+            var newChar = newLetter.character;
+            newFormat.push(newChar);
+        });
+        newFormat.join(" ");
+        console.log(newFormat.join(" "));
+    };
+    //map is another method tha tis really similar to forEach method: 
     // .map(function(elem){
     //     var letterElement = new Letter(elem);
     //     return letterElement.character;
