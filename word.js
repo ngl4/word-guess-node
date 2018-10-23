@@ -2,57 +2,53 @@ var Letter = require("./letter");
 
 var letter = new Letter();
 
-function Word (word) {
+function Word(word) {
 
     this.word = word;
-    
-    this.lettersArray = function() {
 
-        //var newFormat = [];
-        var array = (this.word).split("").map(function(elem){
-                 var letterElement = new Letter(elem);
-                 return letterElement.getChar();
-                 //return letterElement.character;
+    this.lettersArray = function () {
+        var array = (this.word).split("").map(function (elem) {
+            var letterElement = new Letter(elem);
+            return letterElement;
+        });
+        return array;
+    }
 
-                });
+    this.getWord = function () {
+        var string = [];
+        this.lettersArray().forEach(function (elem) {
+            if (elem.checkLetter())
+            var eachChar = elem.getChar();
+            string.push(eachChar);
+            // console.log(elem.bool);
+        });
+        return string.join(" ");
+    }
 
-                console.log(array);
+    this.checkGuessEachLetter = function (elem) {
+        //letter.checkLetter(char);
+        //letter.getChar();
+        //console.log(this.lettersArray());
+        var string = [];
+        this.lettersArray().forEach(function (letter) {
+            //console.log(letter);
+            console.log(letter.checkLetter(elem));
+            if (letter.checkLetter(elem)) {
+                var char = letter.getChar();
+                string.push(char);
 
-                return array.join(" ");
-
-    //     array.forEach(function(elem){
-    //         var newLetter = new Letter(elem);
-    //         var newChar = newLetter.character;
-    //         newFormat.push(newChar);
-    //     });
-    //     newFormat.join(" ");
-    //     console.log(newFormat.join(" "));
-    // };
-    //map is another method tha tis really similar to forEach method: 
-    // .map(function(elem){
-    //     var letterElement = new Letter(elem);
-    //     return letterElement.character;
-    // });
-
+            }else {
+                var char = letter.getChar();
+                string.push(char);
             }
 
-    this.getWord = function() {
-        var string =[];
-        this.lettersArray().forEach(function(elem){
-            var eachChar = letter.getChar(elem);
-            string.push(eachChar);
-        }); 
-        return string.join(" ");  
-    }
 
-    this.checkGuessEachLetter = function(char) {
-        letter.checkLetter(char);
-        //letter.getChar();
-        console.log("letter checked!");
+        });
+
+        return string.join(" ");
 
     }
 
- 
 };
 
 module.exports = Word;
@@ -62,8 +58,14 @@ var word = new Word("hello");
 // var myLetter = new Letter("e");
 
 var wordString = word.lettersArray();
+var wordBeingChecked = word.checkGuessEachLetter("e");
 
-console.log(wordString);
+//console.log(wordString);
+console.log(wordBeingChecked);
+
+var wordAfterGuess = word.getWord();
+// console.log(wordAfterGuess);
+
 // console.log(word.lettersArray);
 
 // for (i=0; i<(word.lettersArray).length; i++){

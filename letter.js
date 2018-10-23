@@ -3,6 +3,7 @@ function Letter (char){
 
     this.character = char;
     this.bool = false;
+
 };
 
 Letter.prototype.getChar = function(){
@@ -15,13 +16,15 @@ Letter.prototype.getChar = function(){
 }
 
 Letter.prototype.checkLetter = function(charGuessed){
-
     if (charGuessed === this.character) {
         this.bool = true;
+        return this.bool;
 
     }else {
         this.bool = false;
+        return this.bool;
     } 
+    
 }
 
 
